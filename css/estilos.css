@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body{    
+    background-image: linear-gradient(gold,rgb(255, 123, 0));
+    min-height: 94.5vh;
+
+    font-family: 'Roboto', sans-serif;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;    
+}
+
+
+h1,div{
+    text-align: center;
+}
+
+h1{
+    font-size: 3rem;
+    margin-bottom: 5%;
+}
+
+label{
+    margin-right: 1%;
+}
+
+#div{
+    font-size: 1.3rem;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding-top:2%;
+    width: 600px;
+    margin: 0 auto;
+    background-color: rgb(253, 220, 148);
+}
+
+input{
+    border: none;
+    border-radius: 3px;
+    font-size: 1.3rem;
+}
+
+#numero{
+    border-radius: 3px;
+    
+}
+
+#boton{
+    display: block;
+    padding: 1%;
+    margin: 2% auto;
+    border: 1px solid rgb(114, 114, 114);
+    background: linear-gradient(gold,rgb(255, 123, 0));
+    transition-duration: 0.3s;
+}
+
+#boton:hover:enabled{
+    padding: 1% 2%;
+}
+
+.diverror{
+    animation: error 0.4s;
+    
+}
+
+@keyframes error{
+    25%{
+        transform: translateX(-5px);
+    }
+    50%{
+        transform: translateX(10px);
+    }
+    75%{
+        transform: translateX(-10px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+
+.tablaJugadores{
+   margin: 30px auto; 
+    border-collapse: collapse;    
+    font-size: 0.9rem;
+    min-width: 700px;
+    border-radius: 2%;
+}
+
+.tablaJugadores thead tr{
+    background-color: gold;
+    color: brown;   
+    text-align: left;
+    font-weight: bold;
+}
+
+.tablaJugadores th,.tablaJugadores td{
+    padding: 12px 15px;
+}
+
+.tablaJugadores tbody tr{
+    border-bottom: 1px solid grey;
+}
+
+.tablaJugadores tbody:nth-of-type(even){
+    background-color: gold;
+}
+
+.tablaJugadores tbody tr:last-of-type{
+    border-bottom: none;
+}
