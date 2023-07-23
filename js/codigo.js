@@ -48,7 +48,7 @@ function numeroIncorrecto(numero) {
     document.querySelector("#div").classList.remove("diverror")
     document.querySelector("#div").offsetWidth;
     document.querySelector("#div").classList.add("diverror")
-    document.querySelector("#div").onanimationend = () => alert("Incorrecto, te quedan " + (chances-intentos) + " chances. Pista: " + pistaNumero(numero, chances));
+    document.querySelector("#div").onanimationend = () => alert("Incorrecto, te quedan " + (chances-intentos) + " chances. Pista: " + pistaNumero(numero, chances - intentos));
 }
 
 function ingresarNumero() {
