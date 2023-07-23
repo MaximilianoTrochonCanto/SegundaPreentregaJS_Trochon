@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
-body{    
-    background-image: linear-gradient(gold,rgb(255, 123, 0));
-    min-height: 94.5vh;
+:root{
+    --transparent: rgba(2, 2, 2, 0.5); 
+    --goldgrad:linear-gradient(gold,rgb(255, 123, 0));
+}
 
+body{    
+     background-image: var(--goldgrad);     
+    min-height: 94.5vh;
+    text-align: center;
     font-family: 'Roboto', sans-serif;
     -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
@@ -13,9 +18,6 @@ body{
 }
 
 
-h1,div{
-    text-align: center;
-}
 
 h1{
     font-size: 3rem;
@@ -52,7 +54,7 @@ input{
     padding: 1%;
     margin: 2% auto;
     border: 1px solid rgb(114, 114, 114);
-    background: linear-gradient(gold,rgb(255, 123, 0));
+    background:var(--goldgrad);
     transition-duration: 0.3s;
 }
 
@@ -80,34 +82,34 @@ input{
     }
 }
 
+#top5{
+    margin-top: 5%;
+}
 
-.tablaJugadores{
-   margin: 30px auto; 
+table{
+   margin: 3px auto; 
     border-collapse: collapse;    
     font-size: 0.9rem;
     min-width: 700px;
     border-radius: 2%;
+    text-align: left;
 }
 
-.tablaJugadores thead tr{
-    background-color: gold;
-    color: brown;   
-    text-align: left;
+h2,h3{
+    color: var(--transparent);    
+}
+
+table thead tr{    
+    color: rgb(230, 227, 227);   
+    background-color: var(--transparent);
     font-weight: bold;
 }
 
-.tablaJugadores th,.tablaJugadores td{
+table th,table td{
     padding: 12px 15px;
 }
 
-.tablaJugadores tbody tr{
+table tbody tr{
     border-bottom: 1px solid grey;
 }
 
-.tablaJugadores tbody:nth-of-type(even){
-    background-color: gold;
-}
-
-.tablaJugadores tbody tr:last-of-type{
-    border-bottom: none;
-}
