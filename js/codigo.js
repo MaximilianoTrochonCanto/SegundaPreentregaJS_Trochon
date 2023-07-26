@@ -12,7 +12,7 @@ const colorVictorioso = 'rgb(171, 250, 171)';
 //#region Funciones
 const crearTabla = function(){    
     let h2 = document.createElement("h2");
-    h2.textContent = "Top 5";
+    h2.textContent = "Top 5 jugadores.";
     document.querySelector("#top5").appendChild(h2);
     tabla.innerHTML = `<thead><tr><th>Nombre</th><th>Procedencia</th><th>Intentos</th></tr></thead>`
     
