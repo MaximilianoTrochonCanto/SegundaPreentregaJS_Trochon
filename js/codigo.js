@@ -1,6 +1,5 @@
 //#region Variables
 let ganador = Math.floor(Math.random() * 100) + 1;
-console.log(ganador);
 let intentos = 0;
 const chances = 5;
 const refresca = "Si querés volver a jugar, refrescá la página.";
