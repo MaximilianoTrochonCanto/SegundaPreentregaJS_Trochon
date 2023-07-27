@@ -5,25 +5,52 @@ let intentos = 0;
 const chances = 5;
 const refresca = "Si querés volver a jugar, refrescá la página.";
 let tabla = document.createElement('table')
+let tablaJugadores = document.querySelector("#top5");
+let ul = tablaJugadores.getElementsByTagName("ul");
 
 const colorVictorioso = 'rgb(171, 250, 171)';
 //#endregion
 
 //#region Funciones
-const crearTabla = function(){    
-    let h2 = document.createElement("h2");
-    h2.textContent = "Top 5 jugadores.";
-    document.querySelector("#top5").appendChild(h2);
+const crearTabla = function(){                
     tabla.innerHTML = `<thead><tr><th>Nombre</th><th>Procedencia</th><th>Intentos</th></tr></thead>`
     
 }
+
+function crearLinks(h2,top5){    
+    let li1 = document.createElement("li");
+    li1.textContent = "Ver todos"        
+    li1.addEventListener("click",function(){
+        h2.innerHTML = "Ganadores de hoy"
+        crearTabla();
+        
+        rellenarTabla(jugadoresPrecargados)            
+
+    })
+    let li2 = document.createElement("li");
+    li2.textContent = "Ver top 5"        
+    li2.addEventListener("click",
+    function(){
+        h2.innerHTML = "Top 5 jugadores"
+        crearTabla();
+        
+        rellenarTabla(top5)        
+    })
+    ul[0].appendChild(li1)
+    ul[0].appendChild(li2)
+    
+
+    
+}
+
+
 const listar = (a) => tabla.innerHTML += `<tbody><tr><td>${a.nombre}</td><td>${a.procedencia}</td><td>${a.intentos}</td></tr></tbody>`
 const rellenarTabla = (j) => j.forEach(listar);
 
 const agregarFelicitaciones = function(texto){
     let h3 = document.createElement('h3');    
     h3.innerHTML = texto;    
-    document.querySelector("#top5").appendChild(h3);
+    tablaJugadores.appendChild(h3);
 }
 
 const consultarJugadorNuevo = function(){
@@ -131,11 +158,13 @@ function tuResultado(color, texto) {
     document.querySelector("#boton").disabled = true;
     document.querySelector("#body").style.background = color;
     alert(texto + refresca);    
-    let jugadoresOrdenados = jugadoresPrecargados.sort((a,b) => a.intentos - b.intentos || a.nombre.localeCompare(b.nombre));    
-    let top5 = jugadoresOrdenados.slice(0,5);
     crearTabla();
+    let top5 = jugadoresOrdenados.slice(0,5);
+    let h2 = tablaJugadores.getElementsByTagName("h2")[0]
+    h2.innerHTML = "Top 5 jugadores"
+    crearLinks(h2,top5);
     rellenarTabla(top5);
-    document.querySelector("#top5").appendChild(tabla);
+    tablaJugadores.appendChild(tabla);    
     figuraEnTop5(jugadorNuevo,top5)
 } 
 
@@ -283,5 +312,6 @@ let jugadoresPrecargados = [
     },
 ]
 
+let jugadoresOrdenados = jugadoresPrecargados.sort((a,b) => a.intentos - b.intentos || a.nombre.localeCompare(b.nombre));    
 
 //#endregion
